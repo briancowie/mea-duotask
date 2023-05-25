@@ -1,6 +1,12 @@
 pipeline {
     agent any
-    stages {
+    stages ('Pre-build cleanup') {
+        steps{
+            sh 'docker system prune -f'
+        }
+    } 
+    
+    {
         stage('Clone repo') {
             steps {
                 git url: 'https://github.com/briancowie/mea-duotask', branch: 'master'
