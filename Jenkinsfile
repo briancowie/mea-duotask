@@ -5,6 +5,7 @@ pipeline {
             steps {
                 git url: 'https://github.com/briancowie/mea-duotask', branch: 'master'
             }
+        }
         stage('Build and run container'){
             steps { 
                 sh '''
@@ -15,6 +16,5 @@ pipeline {
                 '''
                 }
             }
-        }
     }
 }
